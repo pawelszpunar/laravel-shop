@@ -5,9 +5,11 @@ import 'bootstrap';
 
 
 try {
-    //window.Popper = require('popper.js').default;
+    window.Popper = require('popper.js').default;
     //window.Swal = require('sweetalert2');
     window.$ = window.jQuery = require('jquery');
+    const Swal = require('sweetalert2')
+
 
 
     require('bootstrap');

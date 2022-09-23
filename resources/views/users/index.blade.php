@@ -36,29 +36,9 @@
 
 @endsection
 
-{{--@section('script')--}}
-{{--    <script type="text/javascript">--}}
-{{--        console.log($('button'));--}}
-{{--        console.log('AAA');--}}
-{{--    </script>--}}
-{{--@endsection--}}
-
-
 @section('javascript')
-    $(function() {
-        $('.delete').click(function() {
-            $.ajax({
-                method: "DELETE",
-                url: "http://127.0.0.1:8000/users/" + $(this).data("id"),
-                //data: { id: $(this).data("id") }
-            })
-            .done(function( msg ) {
-                //alert( "Data Saved: " + msg );
-                window.location.reload();
-            })
-            .fail(function( msg ) {
-                alert("ERROR");
-            });
-        });
-    });
+    const deleteUrl = "{{ url('users') }}/";
+@endsection
+@section('javascript-files')
+    @vite(['resources/js/delete.js'])
 @endsection
