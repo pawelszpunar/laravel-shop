@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -18,10 +19,6 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-//        $products = DB::table('products')->paginate(4);
-//        return view('products.index', [
-//            'products' => $products
-//        ]);
         return view("products.index", [
             'products' => Product::paginate(10)
         ]);
@@ -46,6 +43,9 @@ class ProductController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $product = new Product($request->all());
+        if ($request->hasFile('image')) {
+            $product->image_path = Storage::disk('public')->putFile('products', $request->file('image'));
+        }
         $product->save();
         return redirect(route("products.index"));
     }
@@ -86,6 +86,9 @@ class ProductController extends Controller
     public function update(Request $request, Product $product): RedirectResponse
     {
         $product->fill($request->all());
+        if($request->hasFile('image')) {
+            $product->image_path = Storage::disk('public')->putFile('products', $request->file('image'));
+        }
         $product->save();
         return redirect(route("products.index"));
     }
