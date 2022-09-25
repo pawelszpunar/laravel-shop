@@ -8,14 +8,14 @@ $(function () {
             buttonsStyling: false
         })
         Swal.fire({
-            title: 'Are you sure you want to delete the record?',
-            text: "You won't be able to revert this!",
+            title: confirm_delete_title,
+            text: confirm_delete_text,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'No, keep it!'
+            confirmButtonText: confirm_button_text,
+            cancelButtonText: cancel_button_text
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -31,8 +31,8 @@ $(function () {
                         console.log(msg);
                         Swal.fire({
                             icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!'
+                            //title: 'Oops...',
+                            text: fail_text
                         })
                     });
             } else if (
@@ -40,8 +40,8 @@ $(function () {
                 result.dismiss === Swal.DismissReason.cancel
             ) {
                 swalWithBootstrapButtons.fire(
-                    'Cancelled',
-                    'Your record is safe :)',
+                    cancel_title,
+                    cancel_text,
                     'error'
                 )
             }

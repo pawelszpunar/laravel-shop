@@ -55,8 +55,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/users/list">Users list</a>
-                                    <a class="dropdown-item" href="{{ route('products.index') }}">Products</a>
+                                    <a class="dropdown-item" href="/users/list">{{ __('shop_lang.menu.users_list') }}</a>
+                                    <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('shop_lang.menu.products_list') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

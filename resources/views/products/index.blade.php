@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h2>Products list</h2>
+            <h2>{{ __('shop_lang.product.index_title') }}</h2>
         </div>
         <div class="col-6">
             <a class="float-end" href="{{ route('products.create') }}">
-                <button type="button" class="btn btn-primary">Add product</button>
+                <button type="button" class="btn btn-primary">{{ __('shop_lang.button.add') }}</button>
             </a>
         </div>
     </div>
@@ -17,11 +17,11 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Price</th>
-                <th scope="col">Actions</th>
+                <th scope="col">{{ __('shop_lang.product.fields.name') }}</th>
+                <th scope="col">{{ __('shop_lang.product.fields.description') }}</th>
+                <th scope="col">{{ __('shop_lang.product.fields.amount') }}</th>
+                <th scope="col">{{ __('shop_lang.product.fields.price') }}</th>
+                <th scope="col">{{ __('shop_lang.columns.action') }}</th>
             </tr>
             </thead>
             <tbody>
@@ -54,6 +54,13 @@
 
 @section('javascript')
     const deleteUrl = "{{ url('products') }}/";
+    const confirm_delete_title = "{{ __('shop_lang.messages.confirm_delete_title') }}";
+    const confirm_delete_text = "{{ __('shop_lang.messages.confirm_delete_text') }}";
+    const confirm_button_text = "{{ __('shop_lang.messages.confirm_button_text') }}";
+    const cancel_button_text = "{{ __('shop_lang.messages.cancel_button_text') }}";
+    const fail_text = "{{ __('shop_lang.messages.fail_text') }}";
+    const cancel_title = "{{ __('shop_lang.messages.cancel_title') }}";
+    const cancel_text = "{{ __('shop_lang.messages.cancel_text') }}";
 @endsection
 @section('javascript-files')
     @vite(['resources/js/delete.js'])

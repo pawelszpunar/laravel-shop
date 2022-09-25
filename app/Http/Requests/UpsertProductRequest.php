@@ -31,4 +31,20 @@ class UpsertProductRequest extends FormRequest
             'image' => 'nullable|image|mimes:jpg,png'
         ];
     }
+
+    // Overwrite default validation messages - example
+//    public function messages()
+//    {
+//        return [
+//            'name.required' => 'You can\'t leave it blank'
+//        ];
+//    }
+
+    // Overwrite default filed names in validation - example
+//    public function attributes()
+//    {
+//        return [
+//            'name' => 'Name of the product'
+//        ];
+//    }
 }
