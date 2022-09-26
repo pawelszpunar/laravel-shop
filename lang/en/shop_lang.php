@@ -7,6 +7,12 @@ return [
     | Shop Language PL
     |--------------------------------------------------------------------------
     */
+    'index' => [
+        'products' => 'Products',
+        'categories' => 'Categories',
+        'price' => 'Price',
+        'update_results' => 'Update results'
+    ],
     'menu' => [
         'products_list' => 'Products list',
         'users_list' => 'Users list'
