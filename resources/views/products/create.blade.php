@@ -25,8 +25,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="row mb-3">
                             <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('shop_lang.product.fields.description') }}</label>
 
@@ -70,6 +68,26 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="category"
+                                   class="col-md-4 col-form-label text-md-end">{{ __('shop_lang.product.fields.category') }}</label>
+                            <div class="col-md-6">
+                                <select id="category" class="form-select @error('category_id') is-invalid @enderror"
+                                        name="category_id">
+                                    <option value="">None</option>
+                                    @foreach($categories as $category)
+                                        <option
+                                            value="{{ $category->id }}" @selected($product->isSelectedCategory($category->id))>{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('shop_lang.product.fields.image') }}</label>
 
                             <div class="col-md-6">
@@ -82,8 +100,6 @@
                                 @enderror
                             </div>
                         </div>
-
-
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

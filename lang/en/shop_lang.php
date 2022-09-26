@@ -37,7 +37,8 @@ return [
             'description' => 'Description',
             'amount' => 'Amount',
             'price' => 'Price',
-            'image' => 'Image'
+            'image' => 'Image',
+            'category' => 'Category'
         ]
     ]
 ];
