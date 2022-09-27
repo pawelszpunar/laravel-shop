@@ -23,18 +23,18 @@ $(function () {
                     url: deleteUrl + $(this).data("id"),
                     //data: { id: $(this).data("id") }
                 })
-                    .done(function (msg) {
-                        //alert( "Data Saved: " + msg );
-                        window.location.reload();
+                .done(function (msg) {
+                    //alert( "Data Saved: " + msg );
+                    window.location.reload();
+                })
+                .fail(function (msg) {
+                    console.log(msg);
+                    Swal.fire({
+                        icon: 'error',
+                        //title: 'Oops...',
+                        text: fail_text
                     })
-                    .fail(function (msg) {
-                        console.log(msg);
-                        Swal.fire({
-                            icon: 'error',
-                            //title: 'Oops...',
-                            text: fail_text
-                        })
-                    });
+                });
             } else if (
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel

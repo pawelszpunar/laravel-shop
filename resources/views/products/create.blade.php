@@ -76,7 +76,7 @@
                                     <option value="">None</option>
                                     @foreach($categories as $category)
                                         <option
-                                            value="{{ $category->id }}" @selected($product->isSelectedCategory($category->id))>{{ $category->name }}</option>
+                                            value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('category_id')

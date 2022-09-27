@@ -3,18 +3,6 @@ window._ = _;
 
 import 'bootstrap';
 
-
-try {
-    window.Popper = require('popper.js').default;
-    //window.Swal = require('sweetalert2');
-    window.$ = window.jQuery = require('jquery');
-    const Swal = require('sweetalert2')
-
-
-
-    require('bootstrap');
-} catch (e) {}
-
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
