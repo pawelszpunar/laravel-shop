@@ -1,21 +1,44 @@
 $(function() {
-    $('div.products-count a').click(function(event) {
+    // $('div.products-count a').click(function(event) {
+    //     event.preventDefault();
+    //    $('a.products-actual-count').text($(this).text());
+    //     getProducts($(this).text());
+    // });
+    //
+    // $('a#filter-button').click(function(event) {
+    //     event.preventDefault();
+    //     getProducts($('a.products-actual-count').first().text());
+    // });
+
+    $('div.products-sort a').click(function (event) {
         event.preventDefault();
-       $('a.products-actual-count').text($(this).text());
-        getProducts($(this).text());
+        $('a.products-actual-sort').text($(this).text()).data($(this).data());
+        //getProducts($(this).text());
     });
 
-    $('a#filter-button').click(function(event) {
+    $('div.products-count a').click(function (event) {
         event.preventDefault();
-        getProducts($('a.products-actual-count').text());
+        $('a.products-actual-count').text($(this).text());
+        //getProducts($(this).text());
     });
 
-    function getProducts(paginate) {
+    $('div.products-count a').add('div.products-sort a').click(function (event) {
+        event.preventDefault();
+        console.log($('a.products-actual-sort').data().id);
+        getProducts($('a.products-actual-count').first().text(), $('a.products-actual-sort').data().id);
+    });
+
+    $('a#filter-button').click(function (event) {
+        event.preventDefault();
+        getProducts($('a.products-actual-count').first().text());
+    });
+
+    function getProducts(paginate, sort) {
         const form = $('form.sidebar-filter').serialize();
         $.ajax({
             method: "GET",
             url: "/",
-            data: form + "&" + $.param({paginate: paginate})
+            data: form + "&" + $.param({paginate: paginate}) + "&" + $.param({sort: sort})
         })
             .done(function (response) {
                 $('div#products-wrapper').empty();

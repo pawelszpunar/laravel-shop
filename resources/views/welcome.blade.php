@@ -6,32 +6,26 @@
             <div class="col-md-8 order-md-2 col-lg-9">
                 <div class="container-fluid">
                     <div class="row   mb-5">
-                        <div class="col-12">
-                            <div class="dropdown text-md-left text-center float-md-left mb-3 mt-3 mt-md-0 mb-md-0">
+                        <div class="row">
+                            <div class="col-sm dropdown text-md-left text-center float-md-left mb-3 mt-3 mt-md-0 mb-md-0">
                                 <label class="mr-2">Sort by:</label>
-                                <a class="btn btn-lg btn-light dropdown-toggle" data-bs-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Relevance <span class="caret"></span></a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" x-placement="bottom-start"
-                                     style="position: absolute; transform: translate3d(71px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                    <a class="dropdown-item" href="#">Relevance</a>
-                                    <a class="dropdown-item" href="#">Price Descending</a>
-                                    <a class="dropdown-item" href="#">Price Ascending</a>
-                                    <a class="dropdown-item" href="#">Best Selling</a>
+                                <a class="btn btn-lg btn-light dropdown-toggle products-actual-sort" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-id="3">from oldest<span class="caret"></span></a>
+                                <div class="dropdown-menu products-sort" aria-labelledby="navbarDropdown" x-placement="bottom-start" style="position: absolute; transform: translate3d(71px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                    <a class="dropdown-item" href="#" data-id="1">A - Z</a>
+                                    <a class="dropdown-item" href="#" data-id="2">Z - A</a>
+                                    <a class="dropdown-item" href="#" data-id="3">from oldest</a>
+                                    <a class="dropdown-item" href="#" data-id="4">from newest</a>
                                 </div>
                             </div>
-                            <div class="btn-group float-md-right ml-3">
-                                <button type="button" class="btn btn-lg btn-light"><span
-                                        class="fa fa-arrow-left"></span></button>
-                                <button type="button" class="btn btn-lg btn-light"><span
-                                        class="fa fa-arrow-right"></span></button>
+                            <div class="col-sm btn-group float-md-right ml-3">
+                                <button type="button" class="btn btn-lg btn-light"><span class="fa fa-arrow-left"></span></button>
+                                <button type="button" class="btn btn-lg btn-light"><span class="fa fa-arrow-right"></span></button>
                             </div>
-                            <div class="dropdown">
+                            <div class="col-sm dropdown">
                                 <label class="mr-2">View:</label>
                                 <a class="btn btn-lg btn-light dropdown-toggle products-actual-count" data-bs-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">5 <span class="caret"></span></a>
-                                <div class="dropdown-menu dropdown-menu-right products-count" aria-labelledby="navbarDropdown"
-                                     x-placement="bottom-end"
-                                     style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
+                                   aria-haspopup="true" aria-expanded="false">5<span class="caret"></span></a>
+                                <div class="dropdown-menu dropdown-menu-right products-count" aria-labelledby="navbarDropdown" x-placement="bottom-end" style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
                                     <a class="dropdown-item" href="#">5</a>
                                     <a class="dropdown-item" href="#">10</a>
                                     <a class="dropdown-item" href="#">15</a>
@@ -46,11 +40,9 @@
                                 <div class="card h-100 border-0">
                                     <div class="card-img-top">
                                         @if(!is_null($product->image_path))
-                                            <img src="{{ asset('storage/' . $product->image_path) }}"
-                                                 class="img-fluid mx-auto d-block" alt="Product image">
+                                            <img src="{{ asset('storage/' . $product->image_path) }}" class="img-fluid mx-auto d-block" alt="Product image">
                                         @else
-                                            <img src="{{ $default_image }}"
-                                             class="img-fluid mx-auto d-block" alt="Product image">
+                                            <img src="{{ $default_image }}" class="img-fluid mx-auto d-block" alt="Product image">
                                         @endif
                                     </div>
                                     <div class="card-body text-center">
@@ -78,7 +70,7 @@
                             <div class="dropdown">
                                 <label class="mr-2">View:</label>
                                 <a class="btn btn-light btn-lg dropdown-toggle products-actual-count" data-bs-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">5 <span class="caret"></span></a>
+                                   aria-haspopup="true" aria-expanded="false">5<span class="caret"></span></a>
                                 <div class="dropdown-menu products-count" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">5</a>
                                     <a class="dropdown-item" href="#">10</a>

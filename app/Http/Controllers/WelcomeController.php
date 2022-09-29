@@ -20,9 +20,10 @@ class WelcomeController extends Controller
     {
         $filters = $request->query('filter');
         $paginate = $request->query('paginate') ?? 5;
+        $sort = $request->query('sort') ?? 1;
+
         $query = Product::query();
-        $query->paginate($paginate);
-        if(!is_null($filters)) {
+                if(!is_null($filters)) {
             if (array_key_exists('categories', $filters))
             $query = $query->whereIn('category_id', $filters['categories']);
             if (!is_null($filters['price_min'])) {
@@ -32,14 +33,28 @@ class WelcomeController extends Controller
                 $query = $query->where('price', '<=', $filters['price_max']);
             }
 
+            switch ($sort) {
+                case 1:
+                    $query = $query->orderBy('name', 'ASC');
+                    break;
+                case 2:
+                    $query = $query->orderBy('name', 'DESC');
+                    break;
+                case 3:
+                    $query = $query->orderBy('created_at', 'ASC');
+                    break;
+                case 4:
+                    $query = $query->orderBy('created_at', 'DESC');
+                    break;
+                default:
+                    $query = $query->orderBy('created_at', 'ASC');
+            }
 
-            return response()->json([
-                'data' => $query->get()
-            ]);
+            return response()->json($query->paginate($paginate));
         }
 
         return view("welcome", [
-            'products' => $query->get(),
+            'products' => $query->paginate($paginate),
             'categories' => ProductCategory::orderBy('name', 'ASC')->get(),
             'default_image' => 'https://via.placeholder.com/240x240/5fa9f8/efefef'
         ]);
