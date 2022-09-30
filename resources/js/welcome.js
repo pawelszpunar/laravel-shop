@@ -28,6 +28,7 @@ $(function() {
         getProducts($('a.products-actual-count').first().text(), $('a.products-actual-sort').data().id);
     });
 
+
     $('a#filter-button').click(function (event) {
         event.preventDefault();
         getProducts($('a.products-actual-count').first().text());
