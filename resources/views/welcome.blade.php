@@ -58,16 +58,18 @@
                         @endforeach
                     </div>
                     <div class="row sorting mb-5 mt-5">
-                        <div class="col-12">
-                            <a class="btn btn-light">
+                        <div class="row">
+                            <div class="col-sm">
+                                <a class="btn btn-light">
                                 <i class="fas fa-arrow-up mr-2"></i> Back to top</a>
-                            <div class="btn-group float-md-right ml-3">
+                            </div>
+                            <div class="col-sm btn-group float-md-right ml-3">
                                 <button type="button" class="btn btn-lg btn-light"><span
                                         class="fa fa-arrow-left"></span></button>
                                 <button type="button" class="btn btn-lg btn-light"><span
                                         class="fa fa-arrow-right"></span></button>
                             </div>
-                            <div class="dropdown">
+                            <div class="col-sm dropdown">
                                 <label class="mr-2">View:</label>
                                 <a class="btn btn-light btn-lg dropdown-toggle products-actual-count" data-bs-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">5<span class="caret"></span></a>
@@ -102,7 +104,7 @@
                 <input id="ex2" type="text" class="slider " value="50,150" data-slider-min="10" data-slider-max="200"
                        data-slider-step="5" data-slider-value="[50,150]" data-value="50,150" style="display: none;">
                 <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                <a href="#" class="btn btn-lg btn-block btn-primary mt-5" id="filter-button">{{ __('shop_lang.index.update_results') }}</a>
+                <a href="#" class="btn btn-lg btn-block btn-primary mt-5" id="filter-button"><i class="fa-solid fa-filter"></i> {{ __('shop_lang.index.update_results') }}</a>
             </form>
 
         </div>
