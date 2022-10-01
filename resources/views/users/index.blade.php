@@ -2,6 +2,12 @@
 @section('content')
 
 <div class="container">
+    @include('helpers.flash-messages')
+    <div class="row">
+        <div class="col-6">
+            <h2>{{ __('shop_lang.user.index_title') }}</h2>
+        </div>
+    </div>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -38,6 +44,13 @@
 
 @section('javascript')
     const deleteUrl = "{{ url('users') }}/";
+    const confirm_delete_title = "{{ __('shop_lang.messages.confirm_delete_title') }}";
+    const confirm_delete_text = "{{ __('shop_lang.messages.confirm_delete_text') }}";
+    const confirm_button_text = "{{ __('shop_lang.messages.confirm_button_text') }}";
+    const cancel_button_text = "{{ __('shop_lang.messages.cancel_button_text') }}";
+    const fail_text = "{{ __('shop_lang.messages.fail_text') }}";
+    const cancel_title = "{{ __('shop_lang.messages.cancel_title') }}";
+    const cancel_text = "{{ __('shop_lang.messages.cancel_text') }}";
 @endsection
 @section('javascript-files')
     @vite(['resources/js/delete.js'])

@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\Factory;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
@@ -91,6 +92,7 @@ class UserController extends Controller
     {
         try {
             $user->delete();
+            Session::flash('status', __('shop_lang.user.status.delete.success'));
             return response()->json([
                 'status' => 'success'
             ]);

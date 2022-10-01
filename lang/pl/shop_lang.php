@@ -33,11 +33,30 @@ return [
         'save' => 'Zapisz',
         'add' => 'Dodaj produkt'
     ],
+    'user' => [
+        'index_title' => 'Lista użytkowników',
+        'status' => [
+            'delete' => [
+                'success' => 'Użytkownik usunięty!'
+            ],
+        ],
+    ],
     'product' => [
         'add_title' => 'Dodawanie produktu',
         'edit_title' => 'Edycja produktu: :name',
         'show_title' => 'Podgląd produktu',
         'index_title' => "Lista produktów",
+        'status' => [
+            'save' => [
+                'success' => 'Produkt zapisany!'
+            ],
+            'update' => [
+                'success' => 'Produkt zaktualizowany!'
+            ],
+            'delete' => [
+                'success' => 'Produkt usunięty!'
+            ],
+        ],
         'fields' => [
             'name' => 'Nazwa',
             'description' => 'Opis',

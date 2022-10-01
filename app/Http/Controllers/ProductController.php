@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
@@ -51,7 +52,7 @@ class ProductController extends Controller
             $product->image_path = Storage::disk('public')->putFile('products', $request->file('image'));
         }
         $product->save();
-        return redirect(route("products.index"));
+        return redirect(route("products.index"))->with('status', __('shop_lang.product.status.save.success'));
     }
 
     /**
@@ -95,7 +96,7 @@ class ProductController extends Controller
             $product->image_path = Storage::disk('public')->putFile('products', $request->file('image'));
         }
         $product->save();
-        return redirect(route("products.index"));
+        return redirect(route("products.index"))->with('status', __('shop_lang.product.status.update.success'));
     }
 
     /**
@@ -108,6 +109,7 @@ class ProductController extends Controller
     {
         try {
             $product->delete();
+            Session::flash('status', __('shop_lang.product.status.delete.success'));
             return response()->json([
                 'status' => 'success'
             ]);

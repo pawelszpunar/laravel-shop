@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="container">
+    @include('helpers.flash-messages')
     <div class="row">
         <div class="col-6">
             <h2>{{ __('shop_lang.product.index_title') }}</h2>
