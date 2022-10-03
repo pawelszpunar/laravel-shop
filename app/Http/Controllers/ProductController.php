@@ -9,9 +9,13 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ProductController extends Controller
 {
@@ -85,14 +89,18 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpsertProductRequest  $request
-     * @param  Product  $product
-     * @return View
+     * @param UpsertProductRequest $request
+     * @param Product $product
+     * @return RedirectResponse
      */
     public function update(UpsertProductRequest $request, Product $product): RedirectResponse
     {
+        $oldImagePath = $product->image_path;
         $product->fill($request->validated());
         if($request->hasFile('image')) {
+            if(Storage::disk('public')->exists($oldImagePath)) {
+                Storage::disk('public')->delete($oldImagePath);
+            }
             $product->image_path = Storage::disk('public')->putFile('products', $request->file('image'));
         }
         $product->save();
@@ -119,5 +127,20 @@ class ProductController extends Controller
                 'message' => 'error occurred'
             ])->setStatusCode(500);
         }
+    }
+
+    /**
+     * Download image
+     *
+     * @param Product $product
+     * @return RedirectResponse|Response
+     */
+    public function downloadImage(Product $product): RedirectResponse|Response
+    {
+        if (Storage::disk('public')->exists($product->image_path)) {
+            $file = Storage::disk('public')->get($product->image_path);
+            return (new Response($file, 200))->header('Content-Type', 'image/jpeg');
+        }
+        return Redirect::back();
     }
 }
