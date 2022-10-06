@@ -15,7 +15,8 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css-files')
 </head>
 <body>
     <div id="app">
@@ -60,6 +61,7 @@
                                         <a class="dropdown-item" href="/users/list">{{ __('shop_lang.menu.users_list') }}</a>
                                         <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('shop_lang.menu.products_list') }}</a>
                                     @endcan
+                                        <a class="dropdown-item" href="{{ route('cart.index') }}">Cart</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

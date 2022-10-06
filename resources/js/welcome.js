@@ -41,7 +41,7 @@ $(function() {
                     cancelButtonText: '<i class="fa-solid fa-basket-shopping"></i> Continue shopping'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        alert('confirmed');
+                        window.location = WELCOME_DATA.listCart;
                     }
                 })
             })
@@ -75,7 +75,7 @@ $(function() {
     '                                        <h5 class="card-price small">\n' +
     '                                            <i>PLN ' + product.price + '</i>\n' +
     '                                        </h5>\n' +
-    '                                        <button class="btn btn-success btn-sm add-cart-button" data-id="' + product.id + '">\n' +
+    '                                        <button class="btn btn-success btn-sm add-cart-button"' + getDisabled() + ' data-id="' + product.id + '">\n' +
     '                                            <i class="fa-solid fa-cart-shopping"></i>\n' +
     '                                            Add to Cart\n' +
     '                                        </button>\n' +
@@ -96,5 +96,12 @@ $(function() {
             return WELCOME_DATA.storage_path + '/' + product.image_path;
         }
         return WELCOME_DATA.default_image;
+    }
+
+    function getDisabled() {
+        if(WELCOME_DATA.isGuest) {
+            return ' disabled';
+        }
+        return '';
     }
 });
