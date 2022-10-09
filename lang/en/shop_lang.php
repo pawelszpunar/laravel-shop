@@ -34,12 +34,32 @@ return [
         'add' => 'Add product'
     ],
     'user' => [
-        'index_title' => 'Users list',
+        'add_title' => 'Add user',
+        'edit_title' => 'Edit user: :email',
+        'show_title' => 'Preview user',
+        'index_title' => "Users list",
         'status' => [
+            'save' => [
+                'success' => 'User saved!'
+            ],
+            'update' => [
+                'success' => 'User updated!'
+            ],
             'delete' => [
                 'success' => 'User deleted!'
             ],
         ],
+        'fields' => [
+            'name' => 'Name',
+            'surname' => 'Surname',
+            'phone' => 'Phone',
+            'email' => 'Email',
+            'city' => 'City',
+            'zip_code' => 'Zip code',
+            'street' => 'Street',
+            'street_no' => 'Street no',
+            'home_no' => 'Home no'
+        ]
     ],
     'product' => [
         'add_title' => 'Add product',

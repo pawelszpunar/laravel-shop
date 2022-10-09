@@ -34,12 +34,32 @@ return [
         'add' => 'Dodaj produkt'
     ],
     'user' => [
+        'add_title' => 'Dodaj użytkownika',
+        'edit_title' => 'Edit user: :email',
+        'show_title' => 'Pokaż użytkownika',
         'index_title' => 'Lista użytkowników',
         'status' => [
+            'save' => [
+                'success' => 'Użytkownik został zapisany!'
+            ],
+            'update' => [
+                'success' => 'Dane użytkownika zostały zaktualizowane!'
+            ],
             'delete' => [
-                'success' => 'Użytkownik usunięty!'
+                'success' => 'Uzytkownik został usunięty!'
             ],
         ],
+        'fields' => [
+            'name' => 'Imie',
+            'surname' => 'Nazwisko',
+            'phone' => 'Telefon',
+            'email' => 'Email',
+            'city' => 'Miasto',
+            'zip_code' => 'Kod pocztowy',
+            'street' => 'Ulica',
+            'street_no' => 'Numer ulicy',
+            'home_no' => 'Numer domu'
+        ]
     ],
     'product' => [
         'add_title' => 'Dodawanie produktu',
