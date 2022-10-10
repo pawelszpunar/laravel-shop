@@ -32,7 +32,7 @@ $(function () {
                     Swal.fire({
                         icon: 'error',
                         //title: 'Oops...',
-                        text: fail_text
+                        text: msg.responseJSON.message
                     })
                 });
             } else if (

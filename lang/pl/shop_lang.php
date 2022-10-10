@@ -35,7 +35,7 @@ return [
     ],
     'user' => [
         'add_title' => 'Dodaj użytkownika',
-        'edit_title' => 'Edit user: :email',
+        'edit_title' => 'Edycja użytkownika: :email',
         'show_title' => 'Pokaż użytkownika',
         'index_title' => 'Lista użytkowników',
         'status' => [
@@ -46,7 +46,7 @@ return [
                 'success' => 'Dane użytkownika zostały zaktualizowane!'
             ],
             'delete' => [
-                'success' => 'Uzytkownik został usunięty!'
+                'success' => 'Użytkownik został usunięty!'
             ],
         ],
         'fields' => [
