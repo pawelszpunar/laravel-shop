@@ -62,11 +62,8 @@
                                         <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('shop_lang.menu.products_list') }}</a>
                                     @endcan
                                         <a class="dropdown-item" href="{{ route('cart.index') }}">Cart</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                        <a class="dropdown-item" href="{{ route('orders.index') }}">Orders</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

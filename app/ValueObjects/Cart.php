@@ -19,17 +19,29 @@ class Cart
     }
 
     /**
-     * @return array
+     * @return Collection
      */
     public function getItems(): Collection
     {
         return $this->items;
     }
 
+    public function hasItems(): bool
+    {
+        return $this->items->isNotEmpty();
+    }
+
     public function getSum(): float
     {
         return $this->items->sum(function ($item) {
             return $item->getSum();
+        });
+    }
+
+    public function getQuantity(): int
+    {
+        return $this->items->sum(function ($item) {
+            return $item->getQuantity();
         });
     }
 
